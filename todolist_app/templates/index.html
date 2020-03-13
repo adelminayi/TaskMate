@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    <title xmlns="http://www.w3.org/1999/html"> Welcome to Task Mate</title>
+{% endblock title %}
+
+{% block content %}
+    <div class="container">
+       <div class="row mt-5">
+           <div class="col-lg-4">
+               <img src="{% static 'images/L306.jpg' %}" alt="PlecoWorld" class="rounded-lg shadow-sm" width="400" height="300">
+           </div>
+           <div class="col-lg-4">
+               <img src="{% static 'images/L144.jpg' %}" alt="PlecoWorld" class="rounded-lg shadow-sm" width="400" height="300">
+           </div>
+           <div class="col-lg-4">
+               <img src="{% static 'images/L007.jpeg' %}" alt="PlecoWorld" class="rounded-lg shadow-sm" width="400" height="300">
+           </div>
+       </div>
+       <div class="row mt-5">
+           <div class="col-md-10 offset-md-1">
+               <center><p class="h1 text-primary">Pleco is out hobby</p></center>
+               <center><p class="h2 mt-3">Every Pleco is a catfish, But every catfish is not Pleco</p></center>
+               <center><p class="h5">we are discussing about Plecos</p></center>
+
+               <center><a href="{% url 'todolist' %}"><button type="button" class="btn btn-primary btn-lg mt-3 shadow">Let's Start</button></a></center>
+           </div>
+       </div>
+    </div>
+{% endblock content %}

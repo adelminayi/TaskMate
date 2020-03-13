@@ -8,6 +8,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/gif" sizes="16*16">
 
     {% block title %}
     {% endblock title %}
@@ -24,10 +25,25 @@
               <a class="nav-item nav-link" href="{% url 'about' %}">About Us</a>
             </div>
       </div>
+      {% if user.is_authenticated %}
+          <div class="form-inline my-2 my-lg-0">
+            <div class="p-2 bg-dark text-white">Logged in as {{ user.username }}</div>
+            <a href="{% url 'logout' %}">
+                <button class="btn btn-info my-2 my-sm-0" type="submit">Logout</button>
+            </a>
+          </div>
+      {% else %}
+          <a href="{% url 'login' %}">
+                <button class="btn btn-success mr-2 my-2 my-sm-0" type="submit">Login</button>
+          </a>
+          <a href="{% url 'register' %}">
+                <button class="btn btn-primary my-2 my-sm-0" type="submit">Register</button>
+          </a>
+      {% endif %}
     </nav>
 
   </head>
-  <body>
+  <body class="bg-light">
 {% block content %}
 {% endblock content %}
 
